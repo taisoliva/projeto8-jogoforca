@@ -112,3 +112,7 @@
     border-radius: 3px;
 
 }
+
+.esconder{
+    display: none;
+}

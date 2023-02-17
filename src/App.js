@@ -1,6 +1,6 @@
 import Jogo from "./components/Jogo";
-import palavras from "./palavras"
 import Letras from "./components/Letras";
+import { useState } from "react";
 
 const alfabeto = ["a", "b", "c", "d", "e", "f", 
                   "g", "h", "i", "j", "k", "l", 
@@ -9,20 +9,69 @@ const alfabeto = ["a", "b", "c", "d", "e", "f",
                   "y", "z"]
 
 function App() {
-  return (
 
+  const [estadoBotao, setEstadoBotao] = useState(true)
+  const [contador, setContador] = useState(0)
+  const [letraSelecionada,setLetra] = useState("")
+  const [erradas, setErradas] = useState ([])
+  const [palavraSelecionada, setPalavraSelecionada] = useState ("")
+  const [arrayPalavra, setArrayPalavra] = useState([])
+  const [imagem, setImagem] = useState (`./assets/img/forca${contador}.png`)
+ 
+  return (
     <>
         <div className="Jogo">
-          <Jogo/>
+          <Jogo 
+          estadoBotao={estadoBotao} 
+          setEstadoBotao={setEstadoBotao}
+
+          palavraSelecionada={palavraSelecionada}
+          setPalavraSelecionada = {setPalavraSelecionada}
+
+          contador={contador}
+          setContador={setContador}
+
+          letraSelecionada={letraSelecionada}
+          setLetra={setLetra}
+
+          erradas={erradas}
+
+          arrayPalavra = {arrayPalavra}
+          setArrayPalavra = {setArrayPalavra}
+
+          imagem={imagem}
+          
+          />
+
+          
         </div>
+
         <div className="alfabeto"> 
-          {alfabeto.map(word => <Letras key={word} letra={word.toUpperCase()} /> )}
+          {alfabeto.map(word => <Letras 
+          key={word} 
+
+          letra={word.toUpperCase()} 
+          palavraSelecionada={palavraSelecionada}
+
+          estadoBotao={estadoBotao} 
+          setEstadoBotao={setEstadoBotao} 
+
+          contador={contador}
+          setContador={setContador}
+
+          letraSelecionada={letraSelecionada}
+          setLetra={setLetra}
+
+          erradas={erradas}
+          setErradas = {setErradas}
+          arrayPalavra = {arrayPalavra}
+
+          setImagem={setImagem}
+          /> )}
           
         </div>
     </>
     
-   
-
   );
 }
 
