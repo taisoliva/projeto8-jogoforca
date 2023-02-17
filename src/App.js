@@ -81,7 +81,7 @@ function App() {
           setExibirLetra = {setExibirLetra}
 
           setCor={setCor}
-
+          cor={cor}
           
           
           /> )}
