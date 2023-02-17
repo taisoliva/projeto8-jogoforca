@@ -77,9 +77,9 @@ function MontaPalavra(props){
     return (
 
         <>
-            <div className={`palavraEscondida ${(props.estadoBotao && contador !== 6 && exibirLetra.length < palavraSelecionada.length) && "esconder" }`} >
+            <div data-test="word" className={`palavraEscondida ${(props.estadoBotao && contador !== 6 && exibirLetra.length < palavraSelecionada.length) && "esconder" } ${cor}`} >
                 {
-                    (contador === 6) ?  arrayPalavra.map((i) => <span  data-test="word" className={cor}> {i} </span>)  : arrayPalavra.map((i) => <span data-test="word" className={cor}> {exibirLetra.includes(i)? i : "_"} </span>) 
+                    (contador === 6) ?  arrayPalavra.map((i) => <span className={cor}> {i} </span>)  : arrayPalavra.map((i) => <span className={cor}> {exibirLetra.includes(i)? i : "_"} </span>) 
 
                 } 
              </div>
