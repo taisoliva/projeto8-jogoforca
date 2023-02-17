@@ -18,7 +18,6 @@ export default function Jogo (props){
     function Botao(){
 
         setEstadoBotao(false)
-
         if(cor === "vermelho" || cor === "verde"){
             window.location.reload()
         }

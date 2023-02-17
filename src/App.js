@@ -19,6 +19,7 @@ function App() {
   const [imagem, setImagem] = useState (`./assets/img/forca${contador}.png`)
   const [exibirLetra, setExibirLetra] = useState ([])
   const [cor, setCor] = useState("palavraEscondidaCor")
+  
 
   return (
     <>
@@ -46,6 +47,8 @@ function App() {
           exibirLetra={exibirLetra}
 
           cor={cor}
+
+          
           
           />
 
@@ -78,6 +81,9 @@ function App() {
           setExibirLetra = {setExibirLetra}
 
           setCor={setCor}
+
+          
+          
           /> )}
           
         </div>
