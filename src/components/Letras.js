@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Letras (props){
 
     const {palavraSelecionada, contador, setContador,
-          letraSelecionada, setLetra, erradas, setErradas, arrayPalavra, setImagem} = props
+          letraSelecionada, setLetra, erradas, setErradas, arrayPalavra, setImagem, exibirLetra, setExibirLetra} = props
 
     let armazenaValor = contador
 
@@ -17,6 +17,10 @@ export default function Letras (props){
             armazenaValor = contador + 1
             setContador(armazenaValor)
             setImagem(`./assets/img/forca${armazenaValor}.png`)
+       } else{
+            
+             const arrayCertas = [...exibirLetra, (props.letra.toLowerCase())]
+             setExibirLetra(arrayCertas)
        }
        
     }

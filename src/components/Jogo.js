@@ -4,7 +4,8 @@ import palavras from "../palavras";
 export default function Jogo (props){
 
     const {estadoBotao, setEstadoBotao, palavraSelecionada, setPalavraSelecionada, contador, 
-           setContador, letraSelecionada, setLetra, erradas, arrayPalavra, setArrayPalavra, imagem} = props
+           setContador, letraSelecionada, setLetra, erradas, arrayPalavra, 
+           setArrayPalavra, imagem, exibirLetra} = props
 
     
     const [index] = useState (Math.floor(Math.random()*(palavras.length)))
@@ -33,7 +34,8 @@ export default function Jogo (props){
                         setLetra={setLetra}
                         erradas={erradas}
                         arrayPalavra = {arrayPalavra}
-                        setArrayPalavra = {setArrayPalavra}/>
+                        setArrayPalavra = {setArrayPalavra}
+                        exibirLetra={exibirLetra}/>
             </div>  
         </>
     );
@@ -43,10 +45,11 @@ function MontaPalavra(props){
 
     
     const {palavraSelecionada, contador, setContador, 
-           letraSelecionada, setLetra, erradas,arrayPalavra, setArrayPalavra} = props
+           letraSelecionada, setLetra, erradas,arrayPalavra, setArrayPalavra, exibirLetra} = props
     
 
     const array = []
+
 
     if(arrayPalavra.length === 0 ){
         for(let i = 0; i< palavraSelecionada.length; i++){
@@ -57,17 +60,15 @@ function MontaPalavra(props){
 
     console.log(erradas)
     console.log(arrayPalavra)
-    
+    console.log(exibirLetra)
+
     return (
         <div className={`palavraEscondida ${props.estadoBotao && "esconder"}`} >
-            {arrayPalavra.map((i) => <span> _ </span>) }
+            {arrayPalavra.map((i) => <span> {exibirLetra.includes(i)? i : "_"} </span>) }
         </div>
     );
 
     
 }
 
-/* function verifica(letraSelecionada){
-    letraSelecionada === "" ? "_" : "o"
-} */
 

@@ -17,7 +17,8 @@ function App() {
   const [palavraSelecionada, setPalavraSelecionada] = useState ("")
   const [arrayPalavra, setArrayPalavra] = useState([])
   const [imagem, setImagem] = useState (`./assets/img/forca${contador}.png`)
- 
+  const [exibirLetra, setExibirLetra] = useState ([])
+
   return (
     <>
         <div className="Jogo">
@@ -40,6 +41,8 @@ function App() {
           setArrayPalavra = {setArrayPalavra}
 
           imagem={imagem}
+
+          exibirLetra={exibirLetra}
           
           />
 
@@ -67,6 +70,9 @@ function App() {
           arrayPalavra = {arrayPalavra}
 
           setImagem={setImagem}
+
+          exibirLetra={exibirLetra}
+          setExibirLetra = {setExibirLetra}
           /> )}
           
         </div>
