@@ -2,7 +2,7 @@ import { useState } from "react"
 
 export default function Letras (props){
 
-    const { estadoBotao, setEstadoBotao, palavraSelecionada, contador, setContador, erradas, setErradas, 
+    const { estadoBotao, palavraSelecionada, contador, setContador, erradas, setErradas, 
         arrayPalavra, setImagem, exibirLetra, setExibirLetra, setCor, cor} = props
 
     let armazenaValor = contador
@@ -39,14 +39,14 @@ export default function Letras (props){
                 (arrayCertas.length === arrayPalavra.length) && setCor("verde")
                 setExibirLetra(arrayCertas)
               }
-            } else{
-               
-                setEstadoBotao(true)
-                
-            }
+            } 
+    }
+
+    if(ativaLocal === "alfabeto_desativado" && estadoBotao){
+        setAtivaLocal("alfabeto_ativado")
     }
 
     return (
-        <button data-test="letter" className={estadoBotao ? "alfabeto_desativado" : ativaLocal} disabled={(props.estadoBotao || ativaLocal === "alfabeto_desativado" || cor === "vermelho" || cor === "verde") && true} onClick={verifica} > {props.letra} </button>
+        <button data-test="letter" className={ estadoBotao ? "alfabeto_desativado" : ativaLocal} disabled={(props.estadoBotao || cor === "vermelho" || cor === "verde") && true} onClick={verifica} > {props.letra} </button>
     );
 }

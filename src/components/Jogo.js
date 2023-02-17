@@ -4,11 +4,11 @@ import palavras from "../palavras";
 export default function Jogo (props){
 
     const {estadoBotao, setEstadoBotao, palavraSelecionada, setPalavraSelecionada, contador, 
-           setContador, letraSelecionada, setLetra, erradas, arrayPalavra, 
-           setArrayPalavra, imagem, exibirLetra, cor} = props
+           setContador, letraSelecionada, setLetra, erradas, setErradas, arrayPalavra, 
+           setArrayPalavra, imagem, setImagem, exibirLetra, setExibirLetra, cor, setCor} = props
 
     
-    const [index] = useState (Math.floor(Math.random()*(palavras.length)))
+    let [index] = useState (Math.floor(Math.random()*(palavras.length)))
     
     
     if(palavraSelecionada === ""){
@@ -18,10 +18,24 @@ export default function Jogo (props){
     function Botao(){
 
         setEstadoBotao(false)
+       
         if(cor === "vermelho" || cor === "verde"){
-            window.location.reload()
+
+            console.log("entrei ")
+            setEstadoBotao(true)
+            setContador(0)
+            setCor("palavraEscondidaCor")
+            setImagem("./assets/img/forca0.png")
+            setExibirLetra([])
+            index = Math.floor(Math.random()*(palavras.length))
+            setPalavraSelecionada (palavras[index])
+            setArrayPalavra([])
+            setErradas([])
+
         }
     }
+
+    
    
     return (
 
@@ -53,7 +67,7 @@ export default function Jogo (props){
 function MontaPalavra(props){
 
     
-    const {palavraSelecionada, contador, erradas,arrayPalavra, setArrayPalavra, exibirLetra, cor} = props
+    const {palavraSelecionada, contador, erradas, arrayPalavra, setArrayPalavra, exibirLetra, cor} = props
     
     
    

@@ -20,6 +20,7 @@ function App() {
   const [exibirLetra, setExibirLetra] = useState ([])
   const [cor, setCor] = useState("palavraEscondidaCor")
   
+  
 
   return (
     <>
@@ -38,15 +39,19 @@ function App() {
           setLetra={setLetra}
 
           erradas={erradas}
+          setErradas={setErradas}
 
           arrayPalavra = {arrayPalavra}
           setArrayPalavra = {setArrayPalavra}
 
           imagem={imagem}
+          setImagem={setImagem}
 
           exibirLetra={exibirLetra}
+          setExibirLetra={setExibirLetra}
 
           cor={cor}
+          setCor={setCor}
 
           
           
