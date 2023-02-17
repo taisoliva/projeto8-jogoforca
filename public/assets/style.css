@@ -73,9 +73,20 @@
     font-weight: 700;
     font-size: 50px;
     line-height: 68px;
-    color: #000000;
 
     margin-left:15px ;
+}
+
+.palavraEscondidaCor {
+    color: #000000;
+}
+
+.vermelho{
+    color:#FF0000;
+}
+
+.verde{
+    color: #27AE60;
 }
 
 .alfabeto{
@@ -116,3 +127,4 @@
 .esconder{
     display: none;
 }
+

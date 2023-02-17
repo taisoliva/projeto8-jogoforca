@@ -5,25 +5,34 @@ export default function Jogo (props){
 
     const {estadoBotao, setEstadoBotao, palavraSelecionada, setPalavraSelecionada, contador, 
            setContador, letraSelecionada, setLetra, erradas, arrayPalavra, 
-           setArrayPalavra, imagem, exibirLetra} = props
+           setArrayPalavra, imagem, exibirLetra, cor} = props
 
     
     const [index] = useState (Math.floor(Math.random()*(palavras.length)))
-   
+    
     
     if(palavraSelecionada === ""){
          setPalavraSelecionada (palavras[index])
+    }
+
+    function Botao(){
+
+        setEstadoBotao(false)
+
+        if(cor === "vermelho" || cor === "verde"){
+            window.location.reload()
+        }
     }
    
     return (
 
         <> 
             <div className="imagem-forca">
-                 <img src={imagem} />
+                 <img src={imagem} alt={imagem}/>
             </div>
 
             <div className="organizar">   
-                <button onClick={() => setEstadoBotao(false)} className="botao"> Escolher Palavra </button>
+                <button onClick={Botao} className="botao"> Escolher Palavra </button>
                 <MontaPalavra  
                         key={index} 
                         palavraSelecionada={palavraSelecionada} 
@@ -35,7 +44,8 @@ export default function Jogo (props){
                         erradas={erradas}
                         arrayPalavra = {arrayPalavra}
                         setArrayPalavra = {setArrayPalavra}
-                        exibirLetra={exibirLetra}/>
+                        exibirLetra={exibirLetra}
+                        cor={cor}/>
             </div>  
         </>
     );
@@ -44,9 +54,10 @@ export default function Jogo (props){
 function MontaPalavra(props){
 
     
-    const {palavraSelecionada, contador, setContador, 
-           letraSelecionada, setLetra, erradas,arrayPalavra, setArrayPalavra, exibirLetra} = props
+    const {palavraSelecionada, contador, erradas,arrayPalavra, setArrayPalavra, exibirLetra, cor} = props
     
+    
+   
 
     const array = []
 
@@ -58,14 +69,29 @@ function MontaPalavra(props){
         setArrayPalavra(array)
     }
 
-    console.log(erradas)
+    console.log("erradas:",erradas)
     console.log(arrayPalavra)
-    console.log(exibirLetra)
+    console.log("certas",exibirLetra)
+
+    console.log(cor)
 
     return (
-        <div className={`palavraEscondida ${props.estadoBotao && "esconder"}`} >
-            {arrayPalavra.map((i) => <span> {exibirLetra.includes(i)? i : "_"} </span>) }
-        </div>
+
+        <>
+            <div className={`palavraEscondida ${(props.estadoBotao && contador !== 6 && exibirLetra.length < palavraSelecionada.length) && "esconder" }`} >
+                {
+                    (contador === 6) ?  arrayPalavra.map((i) => <span className={cor}> {i} </span>)  : arrayPalavra.map((i) => <span className={cor}> {exibirLetra.includes(i)? i : "_"} </span>) 
+
+                } 
+             </div>
+
+             <div>
+                <p> Escolhidas Erradas: {erradas.map( (i) => i )} </p>
+             </div>
+        </>
+        
+
+        
     );
 
     
