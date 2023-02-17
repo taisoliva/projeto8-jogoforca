@@ -40,6 +40,6 @@ export default function Letras (props){
     }
 
     return (
-        <button disabled={props.estadoBotao} onClick={verifica} > {props.letra} </button>
+        <button data-test="letter" disabled={props.estadoBotao} onClick={verifica} > {props.letra} </button>
     );
 }

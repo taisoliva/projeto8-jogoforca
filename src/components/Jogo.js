@@ -28,11 +28,11 @@ export default function Jogo (props){
 
         <> 
             <div className="imagem-forca">
-                 <img src={imagem} alt={imagem}/>
+                 <img data-test="game-image" src={imagem} alt={imagem}/>
             </div>
 
             <div className="organizar">   
-                <button onClick={Botao} className="botao"> Escolher Palavra </button>
+                <button data-test="choose-word" onClick={Botao} className="botao"> Escolher Palavra </button>
                 <MontaPalavra  
                         key={index} 
                         palavraSelecionada={palavraSelecionada} 
@@ -80,7 +80,7 @@ function MontaPalavra(props){
         <>
             <div className={`palavraEscondida ${(props.estadoBotao && contador !== 6 && exibirLetra.length < palavraSelecionada.length) && "esconder" }`} >
                 {
-                    (contador === 6) ?  arrayPalavra.map((i) => <span className={cor}> {i} </span>)  : arrayPalavra.map((i) => <span className={cor}> {exibirLetra.includes(i)? i : "_"} </span>) 
+                    (contador === 6) ?  arrayPalavra.map((i) => <span  data-test="word" className={cor}> {i} </span>)  : arrayPalavra.map((i) => <span data-test="word" className={cor}> {exibirLetra.includes(i)? i : "_"} </span>) 
 
                 } 
              </div>
