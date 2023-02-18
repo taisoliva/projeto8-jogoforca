@@ -16,7 +16,7 @@ function App() {
   const [erradas, setErradas] = useState ([])
   const [palavraSelecionada, setPalavraSelecionada] = useState ("")
   const [arrayPalavra, setArrayPalavra] = useState([])
-  const [imagem, setImagem] = useState (`./assets/img/forca${contador}.png`)
+  const [imagem, setImagem] = useState (`./assets/img/forca0.png`)
   const [exibirLetra, setExibirLetra] = useState ([])
   const [cor, setCor] = useState("palavraEscondidaCor")
   
