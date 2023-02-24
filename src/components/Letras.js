@@ -1,22 +1,15 @@
-import { useState } from "react"
-
 export default function Letras (props){
 
     const { estadoBotao, setEstadoBotao, palavraSelecionada, contador, setContador, erradas, setErradas, 
-        arrayPalavra, setImagem, exibirLetra, setExibirLetra, setCor, cor} = props
+        arrayPalavra, setImagem, exibirLetra, setExibirLetra, setCor, cor, alfabetoClicado} = props
 
     let armazenaValor = contador
-
-    const [ativaLocal, setAtivaLocal] = useState("alfabeto_ativado")
-
-
 
     function verifica(){
         console.log("exibirLetra:", exibirLetra.length)
         console.log("Palavra", palavraSelecionada.length)
 
-        setAtivaLocal("alfabeto_desativado")
-
+        alfabetoClicado.push(props.letra)
 
         if(exibirLetra.length < palavraSelecionada.length && contador !== 6){
             if(!arrayPalavra.includes((props.letra).toLowerCase()) && !erradas.includes(props.letra)){
@@ -42,11 +35,12 @@ export default function Letras (props){
             } else{
                
                 setEstadoBotao(true)
+            
                 
             }
     }
 
     return (
-        <button data-test="letter" className={estadoBotao ? "alfabeto_desativado" : ativaLocal} disabled={(props.estadoBotao || ativaLocal === "alfabeto_desativado" || cor === "vermelho" || cor === "verde") && true} onClick={verifica} > {props.letra} </button>
+        <button data-test="letter" className={estadoBotao || (alfabetoClicado.includes(props.letra)) ? "alfabeto_desativado" : "alfabeto_ativado"} disabled={(props.estadoBotao || (alfabetoClicado.includes(props.letra)) || cor === "vermelho" || cor === "verde") && true} onClick={verifica} > {props.letra} </button>
     );
 }

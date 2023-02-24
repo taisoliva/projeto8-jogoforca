@@ -16,9 +16,10 @@ function App() {
   const [erradas, setErradas] = useState ([])
   const [palavraSelecionada, setPalavraSelecionada] = useState ("")
   const [arrayPalavra, setArrayPalavra] = useState([])
-  const [imagem, setImagem] = useState (`./assets/img/forca0.png`)
+  const [imagem, setImagem] = useState ("./assets/img/forca0.png")
   const [exibirLetra, setExibirLetra] = useState ([])
   const [cor, setCor] = useState("palavraEscondidaCor")
+  const [alfabetoClicado, setAlfabetoClicado] = useState ([])
   
 
   return (
@@ -38,15 +39,23 @@ function App() {
           setLetra={setLetra}
 
           erradas={erradas}
+          setErradas = {setErradas}
 
           arrayPalavra = {arrayPalavra}
           setArrayPalavra = {setArrayPalavra}
 
           imagem={imagem}
+          setImagem = {setImagem}
 
           exibirLetra={exibirLetra}
+          setExibirLetra = {setExibirLetra}
+         
 
           cor={cor}
+          setCor = {setCor}
+
+          setAlfabetoClicado = {setAlfabetoClicado}
+          
 
           
           
@@ -82,6 +91,8 @@ function App() {
 
           setCor={setCor}
           cor={cor}
+
+          alfabetoClicado={alfabetoClicado}
           
           
           /> )}

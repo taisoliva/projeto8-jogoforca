@@ -1,25 +1,42 @@
-import { useState } from "react";
 import palavras from "../palavras";
 
 export default function Jogo (props){
 
     const {estadoBotao, setEstadoBotao, palavraSelecionada, setPalavraSelecionada, contador, 
-           setContador, letraSelecionada, setLetra, erradas, arrayPalavra, 
-           setArrayPalavra, imagem, exibirLetra, cor} = props
+           setContador, letraSelecionada, setLetra, erradas, setErradas, arrayPalavra, 
+           setArrayPalavra, imagem, setImagem, exibirLetra, setExibirLetra, cor, setCor, setAlfabetoClicado} = props
 
     
-    const [index] = useState (Math.floor(Math.random()*(palavras.length)))
+     let index = Math.floor(Math.random()*(palavras.length))
     
     
     if(palavraSelecionada === ""){
          setPalavraSelecionada (palavras[index])
     }
 
-    function Botao(){
+    /*function Botao(){
 
         setEstadoBotao(false)
         if(cor === "vermelho" || cor === "verde"){
             window.location.reload()
+        }
+    }*/
+
+    function Botao(){
+        setEstadoBotao(false)
+        
+        
+        if(cor === "vermelho" || cor === "verde"){
+            index = Math.floor(Math.random()*(palavras.length))
+            setPalavraSelecionada (palavras[index])
+            setArrayPalavra([])
+            setImagem("./assets/img/forca0.png")
+            setCor("palavraEscondidaCor")
+            setErradas([])
+            setExibirLetra([])
+            setContador(0)
+            setAlfabetoClicado([])
+            console.log(palavraSelecionada)
         }
     }
    
